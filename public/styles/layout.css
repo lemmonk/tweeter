@@ -18,8 +18,43 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.container{
+  display: block;
+  margin: auto;
+  width: 90%;
+}
+
+
+.wrapper {
+background-color: tomato;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-top: 200px;
+}
+
+
+ /* Tablet: minimum width of 768px to maximum width of 1024px */
+ @media only screen and (max-width: 768px) {
+    
+  .wrapper {
+    display:block;
+    margin: auto;
+  }
+    
+}
+
+/* Temporary spacing  */
+.main-footer{
+  height: 100px;
+ 
+}
