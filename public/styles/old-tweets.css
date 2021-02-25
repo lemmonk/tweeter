@@ -2,13 +2,15 @@
   display: block;
   word-wrap: break-word;
   opacity: 0.6;
-  margin: auto;
-  margin-top: 50px;
+  margin-bottom: 20px;
   padding: 10px;
+  width: 100%;
   border-style: solid;
   border-color: #4056a1;
   
 }
+
+
 
 .old-tweet-article:hover{
   opacity: 1;
@@ -82,3 +84,21 @@
   height: 22px;
   padding: 5px;
 }
+
+ /* Tablet: minimum width of 768px to maximum width of 1024px */
+ @media only screen and (max-width: 768px) {
+
+  .old-tweet-article{
+    display: block;
+    word-wrap: break-word;
+    opacity: 0.6;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+    width: 100%;
+    border-style: solid;
+    border-color: #4056a1;
+  }
+
+
+ }

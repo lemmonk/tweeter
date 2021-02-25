@@ -1,24 +1,25 @@
 .main-header{
-  
+ 
   display: flex;
   align-items:center;
   justify-content:flex-end;
   flex-direction: column;
-  /* margin-top: 120px; */
-  width: 100%;
-  height:400px;
+  width: 30%;
+  height: 300px;
   background-image: url("/images/blue-felt.png");
-  background-color: #8c9b54;
+  background-color: #54659b;
+  border-radius: 20px;
 
 }
 
 .main-header img {
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
 }
 
 .avatar-name {
   color: white;
+  font-size: 1.3rem;
 }
 
 .avatar-name label{
@@ -29,20 +30,19 @@
 
 
  /* Tablet: minimum width of 768px to maximum width of 1024px */
- @media only screen and (min-width: 768px) {
+ @media only screen and (max-width: 768px) {
     
   .main-header{
-  
-    display: flex;
-    margin:50px;
-    margin-top: 160px;
-    align-items:center;
-    justify-content:center;
-    flex-direction: column;
-    width: 325px;
-    height:275px;
-    background-image: url("/images/blue-felt.png");
-    background-color: #54659b;
+    
+  display: flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-direction: column;
+  width: 100%;
+  height:400px;
+  background-image: url("/images/blue-felt.png");
+  background-color: #54659b;
+  border-radius: 0px;
   }
 
   .main-header img {
@@ -52,6 +52,7 @@
   
   .avatar-name {
     color: white;
+    font-size: 1.5rem;
   }
     
 }

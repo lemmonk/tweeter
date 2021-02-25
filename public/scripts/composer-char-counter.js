@@ -1,13 +1,13 @@
 $(document).ready(function() {
  
-initCharacterCountListener();
+setCharacterCountListener();
 setComposeAnimListeners();
 detectWindowPos();
 
 });
 
 
-const initCharacterCountListener = event => {
+const setCharacterCountListener = event => {
 
    let parseCounter = 0;
    let calcCounter = 140;
@@ -41,9 +41,8 @@ const setComposeAnimListeners = () => {
 let toggle = true;
 const composeAnimation = () => {
 
-  let scroll = $(window).scrollTop() > 400;
+  let scroll = $(window).scrollTop() > 350;
   
-
   $('#error-msg').fadeOut('slow');
   
   if (toggle || scroll){
@@ -82,13 +81,32 @@ const detectWindowPos = () => {
 
     let scroll = $(window).scrollTop();
 
-    if (scroll > 400) {
+    if (scroll > 350) {
+      $('.nav-bar').css("background-color",'#4056A1');
       $('.top-btn').fadeIn('slow');
       $('.nav-right').fadeOut('slow');
     } else {
       $('.top-btn').fadeOut('slow');
       $('.nav-right').fadeIn('slow');
-    }
 
+      if ($( window ).width() < 768) {
+        $('.nav-bar').css("background-color",'transparent');
+      }
+
+    }
+   
 });
+
+
+  $(window).resize(function (event) {
+
+      if ($( window ).width() > 768) {
+        $('.nav-bar').css("background-color",'#4056A1');
+      } else {
+        $('.nav-bar').css("background-color",'transparent');
+      }
+
+  });
+
+
 }

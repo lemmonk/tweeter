@@ -21,35 +21,51 @@ body {
   font-family: sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
   scroll-behavior: smooth;
+  
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+ .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: flex-start;
+  margin: auto;
+  margin-top: 180px;
+  width: 90%;
+  
+  }
+
 .container{
   display: block;
   margin: auto;
-  width: 90%;
+  margin-left: 10%;
+  width: 60%;
 }
 
 
-.wrapper {
-background-color: tomato;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin-top: 200px;
-}
+
 
 
  /* Tablet: minimum width of 768px to maximum width of 1024px */
  @media only screen and (max-width: 768px) {
-    
+
   .wrapper {
     display:block;
     margin: auto;
+    width: 100%;
   }
+
+  .container{
+    display: block;
+    margin: auto;
+    width: 90%;
+  }
+    
+
     
 }
 
