@@ -65,11 +65,6 @@ const composeAnimation = () => {
 };
 
 
-const delayFocus = () => {
-
-  $('#tweet-text').focus();
-};
-
 
 const detectWindowPos = () => {
 
@@ -100,4 +95,10 @@ const detectWindowPos = () => {
     }
 
   });
+};
+
+
+const delayFocus = () => {
+
+  $('#tweet-text').focus();
 };
