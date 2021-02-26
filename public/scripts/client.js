@@ -1,18 +1,10 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
 $(document).ready(function() {
  
   fetchTweets();
-  postTweet();
+  setSubmitTweetListener();
+  setRefreshListener();
     
 });
-
-
 
 
 const createTweetElement = tweetData => {
@@ -27,7 +19,7 @@ const createTweetElement = tweetData => {
     const days = calcDaysFromCreated(data.created_at);
     days === 1 ? plural = '' : plural = 's';
 
-    const securedContent = `<h4>${secureInputStr(data.content.text)}</h4>`;
+    const securedContent = `<h4>${secureInputTweet(data.content.text)}</h4>`;
  
     $tweet = `<article class="old-tweet-article">
     <header class="old-tweet-header">
@@ -37,11 +29,7 @@ const createTweetElement = tweetData => {
       </div>
       <p>${data.user.handle}</p>
     </header>
-    <div class="old-tweet-body">
-      
-        ${securedContent}
-      
-    </div>
+    <div class="old-tweet-body">${securedContent}</div>
     <footer class="old-tweet-footer">
       <p>${days} day${plural} ago</p>
       <div class="old-tweet-actions">
@@ -56,7 +44,6 @@ const createTweetElement = tweetData => {
   }
 
   return tweetElements;
-
 };
 
 
@@ -65,6 +52,7 @@ const renderTweets = data => {
   $("#old-tweet-container").empty();
   $('#tweet-text').val('');
   document.getElementsByClassName('counter').counter.value = 140;
+
   const $tweets = createTweetElement(data.reverse());
 
   for (const tweet of $tweets) {
@@ -76,9 +64,7 @@ const renderTweets = data => {
 };
 
 
-//AJAX GET
-
-
+// AJAX GET
 const fetchTweets = () => {
 
   $.ajax({
@@ -96,39 +82,12 @@ const fetchTweets = () => {
 };
 
 
-
 //AJAX POST
+const setSubmitTweetListener = () => {
 
-const validateTweet = tweet => {
-
-  let validated = true;
-  let error = $('#error-msg');
- 
-  if (!tweet) {
-  
-    error.html('🚫 Invalid Tweet');
-    error.css.display = 'none';
-    error.fadeIn('slow');
-    validated = false;
-
-  } else if (tweet.length > 140) {
-    
-    error.html('🚫 Tweets must be 140 characters or less');
-    error.css.display = 'none';
-    error.fadeIn('slow');
-    validated = false;
-
-  }
-
-  return validated;
-};
-
-const postTweet = () => {
-
-  $('form').on('submit',function(event) {
+  $('form').on('submit', (event) => {
     event.preventDefault();
  
-
     const validated = validateTweet($('#tweet-text').val());
 
     if (!validated) {
@@ -143,11 +102,10 @@ const postTweet = () => {
       type: 'POST',
       data: $('#tweet-text').serialize(),
      
-      success: function() {
+      success: () => {
         fetchTweets();
-        
       },
-      error: function(error) {
+      error: error => {
         alert(error.responseText);
       },
     });
@@ -159,13 +117,28 @@ const postTweet = () => {
 };
 
 
+//HELPER FUNCTIONS
+const validateTweet = tweet => {
 
+  let error = $('#error-msg');
+ 
+  if (!tweet) {
+  
+    error.html('🚫 Invalid Tweet');
+    error.fadeIn('slow');
+    return false;
 
-//Helper functions
+  } else if (tweet.length > 140) {
+    
+    error.html('🚫 Tweets must be 140 characters or less');
+    error.fadeIn('slow');
+    return false;
 
-const delay = () => {
-  $('#tweet-btn').html('Tweet');
+  }
+
+  return true;
 };
+
 
 const calcDaysFromCreated = created => {
 
@@ -179,8 +152,20 @@ const calcDaysFromCreated = created => {
 
 };
 
-const secureInputStr =  function(str) {
+const secureInputTweet =  tweet => {
+
   let div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
+  div.appendChild(document.createTextNode(tweet));
   return div.innerHTML;
 };
+
+const delay = () => {
+  $('#tweet-btn').html('Tweet');
+};
+
+const setRefreshListener = () => {
+
+  $('#nav-icon').on('click', () => {
+    location.reload();
+  })
+}

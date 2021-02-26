@@ -1,5 +1,4 @@
 $(document).ready(function() {
- 
   setCharacterCountListener();
   setComposeAnimListeners();
   detectWindowPos();
@@ -12,7 +11,7 @@ const setCharacterCountListener = () => {
   let parseCounter = 0;
   let currentCounterVal = 140;
    
-  $("#tweet-text").on('keyup',function() {
+  $("#tweet-text").on('keyup', () => {
 
     parseCounter = Number($("#tweet-text").val().length);
     currentCounterVal = 140 - parseCounter;
@@ -49,7 +48,6 @@ const composeAnimation = () => {
     $(".new-tweet-container").slideDown();
     setTimeout(delayFocus,800);
     
-
   } else {
 
     toggle = true;
@@ -75,7 +73,7 @@ const delayFocus = () => {
 
 const detectWindowPos = () => {
 
-  $(window).scroll(function() {
+  $(window).scroll( () => {
 
     let scroll = $(window).scrollTop();
 
@@ -90,13 +88,10 @@ const detectWindowPos = () => {
       if ($(window).width() < 768) {
         $('.nav-bar').css("background-color",'transparent');
       }
-
     }
-   
   });
 
-
-  $(window).resize(function() {
+  $(window).resize( () => {
 
     if ($(window).width() > 768) {
       $('.nav-bar').css("background-color",'#4056A1');
@@ -105,6 +100,4 @@ const detectWindowPos = () => {
     }
 
   });
-
-
 };
