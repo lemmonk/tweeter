@@ -74,7 +74,8 @@
   transform: rotate(180deg);
 }
 
-/* Tablet: minimum width of 768px to maximum width of 1024px */
+/* Responsive media queries */
+
 @media only screen and (max-width: 768px) {
   .nav-bar {
     background-color: transparent;

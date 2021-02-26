@@ -10,14 +10,16 @@
   
 }
 
-
-
 .old-tweet-article:hover{
   opacity: 1;
   box-shadow: 10px 10px  rgba(56, 70, 136, 0.4);
 }
 
 .old-tweet-article:hover p{
+  display: block;
+}
+
+.old-tweet-article:hover img{
   display: block;
 }
 
@@ -80,12 +82,16 @@
 }
 
 .old-tweet-actions img{
+  display: none;
+  cursor: pointer;
   width: 22px;
   height: 22px;
   padding: 5px;
 }
 
- /* Tablet: minimum width of 768px to maximum width of 1024px */
+
+/* Responsive media queries */
+
  @media only screen and (max-width: 768px) {
 
   .old-tweet-article{
@@ -99,6 +105,5 @@
     border-style: solid;
     border-color: #4056a1;
   }
-
 
  }

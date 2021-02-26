@@ -1,5 +1,4 @@
 .new-tweet-container{
-    
   display: none;
   margin: auto;
   margin-bottom: 20PX;
@@ -45,6 +44,11 @@
   font-size: 1.2rem;
 }
 
+.new-tweet-footer button:hover {
+  border:none;
+  background-color: #06aff5;
+}
+
 .counter{
   padding-right: 10px;
   font-family: 'Bungee', cursive;
@@ -57,13 +61,9 @@
   color:red;
 }
 
-
-
 #error-msg{
-
   display: none;
   margin: auto;
-  width: 500px;
   height: 70px;
   text-align: center;
   color:red;
@@ -72,22 +72,15 @@
 }
 
 
- /* Tablet: minimum width of 768px to maximum width of 1024px */
+ /* Responsive media queries */
+
  @media only screen and (max-width: 768px) {
 
   .new-tweet-container{
-    
-   
     display: none;
     margin: auto;
     margin-top: 75px;
     padding: 0px 10px;
   }
 
-
- }
-
-
-
-
-
+}

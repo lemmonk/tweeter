@@ -87,9 +87,8 @@ $responsive-font-size: 1rem;
   transform: rotate(180deg);
 }
 
+ /* Responsive media queries */
 
-
- /* Tablet: minimum width of 768px to maximum width of 1024px */
  @media only screen and (max-width: 768px) {
     
   .nav-bar{
