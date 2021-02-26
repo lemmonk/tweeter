@@ -1,31 +1,29 @@
 $(document).ready(function() {
  
-setCharacterCountListener();
-setComposeAnimListeners();
-detectWindowPos();
+  setCharacterCountListener();
+  setComposeAnimListeners();
+  detectWindowPos();
 
 });
 
 
-const setCharacterCountListener = event => {
+const setCharacterCountListener = () => {
 
-   let parseCounter = 0;
-   let calcCounter = 140;
-   let charLimit = document.getElementsByClassName('counter');
-
-  
-    $("#tweet-text").on('keyup',function(event) {
+  let parseCounter = 0;
+  let currentCounterVal = 140;
+   
+  $("#tweet-text").on('keyup',function() {
 
     parseCounter = Number($("#tweet-text").val().length);
-    calcCounter = 140 - parseCounter;
+    currentCounterVal = 140 - parseCounter;
 
-    if (calcCounter <= -1) {
+    if (currentCounterVal <= -1) {
       $('output').addClass("counter-error");
     } else {
       $('output').removeClass("counter-error");
     }
 
-    charLimit.counter.value = calcCounter;
+    document.getElementsByClassName('counter').counter.value = currentCounterVal;
   
   });
 };
@@ -35,7 +33,7 @@ const setComposeAnimListeners = () => {
 
   $('.nav-right').on('click',composeAnimation);
   $('.top-btn').on('click',composeAnimation);
-}
+};
 
 
 let toggle = true;
@@ -45,11 +43,11 @@ const composeAnimation = () => {
   
   $('#error-msg').fadeOut('slow');
   
-  if (toggle || scroll){
+  if (toggle || scroll) {
 
     toggle = false;
     $(".new-tweet-container").slideDown();
-    setTimeout(delayFocus,1000);
+    setTimeout(delayFocus,800);
     
 
   } else {
@@ -66,18 +64,18 @@ const composeAnimation = () => {
   });
 
   
-}
+};
 
 
 const delayFocus = () => {
 
   $('#tweet-text').focus();
-}
+};
 
 
 const detectWindowPos = () => {
 
-  $(window).scroll(function (event) {
+  $(window).scroll(function() {
 
     let scroll = $(window).scrollTop();
 
@@ -89,24 +87,24 @@ const detectWindowPos = () => {
       $('.top-btn').fadeOut('slow');
       $('.nav-right').fadeIn('slow');
 
-      if ($( window ).width() < 768) {
+      if ($(window).width() < 768) {
         $('.nav-bar').css("background-color",'transparent');
       }
 
     }
    
-});
+  });
 
 
-  $(window).resize(function (event) {
+  $(window).resize(function() {
 
-      if ($( window ).width() > 768) {
-        $('.nav-bar').css("background-color",'#4056A1');
-      } else {
-        $('.nav-bar').css("background-color",'transparent');
-      }
+    if ($(window).width() > 768) {
+      $('.nav-bar').css("background-color",'#4056A1');
+    } else {
+      $('.nav-bar').css("background-color",'transparent');
+    }
 
   });
 
 
-}
+};
