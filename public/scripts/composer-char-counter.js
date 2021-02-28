@@ -3,7 +3,7 @@ $(document).ready(function() {
   setCharacterCountListener();
 });
 
-//counts how many characters the user has typed and displays an error if they have exceeded the limit.
+//counts how many characters the user has typed and displays an error if they have exceeded that limit.
 const setCharacterCountListener = () => {
 
   let parseCounter = 0;
