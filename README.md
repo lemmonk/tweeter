@@ -17,10 +17,15 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-Parser
+- Chance 
+- md5
 
 # Screenshots
 
 !["Screen shot of main tweet page"](https://github.com/lemmonk/tweeter/blob/master/docs/tweeter-main.png?raw=true)
 
 !["Screen shot of responsive main tweet page styling"](https://github.com/lemmonk/tweeter/blob/master/docs/tweeter-responsive.png?raw=true)
+
+
 
